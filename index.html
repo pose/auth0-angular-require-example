@@ -1,0 +1,26 @@
+<html>
+<head>
+    <!-- Auth0-widget-3.0.8.js must be included in a top level
+         script tag and not via the requirejs bootstrap process.
+
+         If included via require and not in widget
+         Error: [$injector:modulerr] Failed to instantiate module app due to:
+         You need to add Auth0Widget or Auth0.js dependency this.
+         init@http://localhost:3000/lib/auth0-angular.js:205
+         @http://localhost:3000/app.js:36
+         invoke@http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.js:3762
+    -->
+	<script src="lib/auth0-widget-3.0.8.js"></script>
+	<script
+		data-main="app.js"
+		data-require="require.js@2.1.4"
+		data-semver="2.1.4"
+		src="lib/require.js"></script>
+</head>
+
+<body>
+<div ng-controller="DemoController">
+    <button ng-click="activateLoginWidget()">Login</button>
+</div>
+</body>
+</html>
