@@ -5,7 +5,7 @@ require.config({
         'auth-angular':   'lib/auth0-angular',
         'domReady': 	  'lib/requirejs-domready/domReady',
         // we can't include the widget file here - if we include it here
-        // 'auth-widget':    'lib/auth0-widget-3.0.8'
+        'auth0-widget':    'lib/auth0-widget-3.0.8'
     },
     shim: {
         "angular":{
@@ -23,11 +23,12 @@ require.config({
 define(
 	[
     'angular',
+    'auth0-widget',
     'angular-cookies',
-    // 'auth-widget',
     'auth-angular'
 	],
-	function (angular) {
+	function (angular, Auth0Widget) {
+	      window.Auth0Widget = Auth0Widget;
         angular.module('app', [ 'ngCookies','auth0','authInterceptor' ])
         .config(function(authProvider) {
             authProvider.init({
