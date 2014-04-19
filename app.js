@@ -28,14 +28,13 @@ define(
     'auth-angular'
 	],
 	function (angular, Auth0Widget) {
-	      window.Auth0Widget = Auth0Widget;
         angular.module('app', [ 'ngCookies','auth0','authInterceptor' ])
         .config(function(authProvider) {
             authProvider.init({
                 domain: 'contoso.auth0.com',
                 clientID: 'DyG9nCwIEofSy66QM3oo5xU6NFs3TmvT',
                 callbackURL: document.location.href
-            })
+            }, Auth0Widget)
         })
         .controller('DemoController',function($scope,auth) {
             $scope.activateLoginWidget=function() {
